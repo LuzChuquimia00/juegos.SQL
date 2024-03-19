@@ -1,2 +1,2 @@
-# juegos.SQL
+# Base de datos
 juegos.SQL
