@@ -40,9 +40,9 @@ SELECT first_name AS nombreDelEmpleado,salary AS salarioDelTercerMejorEmpleado F
 ORDER BY salary DESC
 LIMIT 1 OFFSET 2;
 --ACT10 Mostrar la cantidad promedio y la cantidad máxima de hijos por empleado.--
-SELECT e.first_name AS nombresDeLosEmpleados ,e.last_name AS apellidosDeLosEmpleados, avg(d.relationship) AS cantidadDeHijos 
+SELECT e.first_name AS nombresDeLosEmpleados, avg(d.relationship) AS promedio, max(d.relationship) as maximaCantidadDeHijos 
 FROM employees e 
 JOIN dependents d ON e.employee_id = d.employee_id 
-GROUP BY nombresDeLosEmpleados, apellidosDeLosEmpleados 
-ORDER BY cantidadDeHijos DESC;
---aun no esta terminado--
+GROUP BY nombresDeLosEmpleados
+ORDER BY maximaCantidadDeHijos DESC;
+--tambien se debe preguntar al profe xq no se ejecuta con algo numerico--
