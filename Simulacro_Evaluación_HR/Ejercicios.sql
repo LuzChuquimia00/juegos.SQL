@@ -35,6 +35,14 @@ JOIN dependents d ON e.employee_id = d.employee_id
 GROUP BY nombresDeLosEmpleados, apellidosDeLosEmpleados --recorda preguntar si va un group by--
 ORDER BY cantidadDeHijos DESC
 LIMIT 5;
+--- Cambios ---
+
+SELECT e.first_name AS nombresDeLosEmpleados ,e.last_name AS apellidosDeLosEmpleados, count(d.relationship) AS cantidadDeHijos 
+FROM employees e 
+JOIN dependents d ON e.employee_id = d.employee_id 
+GROUP BY e.employee_id --- Es mejor agrupar por la id de los empleados qur por los nombres ---
+LIMIT 5;
+
 --ACT9 Mostrar cual es el empleado con el tercer mejor sueldo.--
 SELECT first_name AS nombreDelEmpleado,salary AS salarioDelTercerMejorEmpleado FROM employees
 ORDER BY salary DESC
