@@ -27,4 +27,22 @@ HAVING  count(c.country_name) > 5; --count(...) sirve para contar palabras y adj
 --ACT7  Mostrar la fecha más vieja y la más actual de los ingresos de los empleados
 --(Pista: las fechas se pueden comparar, la más vieja sería  la menor y la más actual la mayor).--
 SELECT MIN(hire_date) AS FechaAntigua,MAX(hire_date) AS FechaActual FROM employees;
---ACT8 Mostrar nombre y apellido y cantidad de hijos de los 5 empleados/as que tengan mayor cantidad.--
+--ACT8 Mostrar nombre y apellido y cantidad de hijos-- 
+--de los 5 empleados/as que tengan mayor cantidad.--
+SELECT e.first_name AS nombresDeLosEmpleados ,e.last_name AS apellidosDeLosEmpleados, count(d.relationship) AS cantidadDeHijos 
+FROM employees e 
+JOIN dependents d ON e.employee_id = d.employee_id 
+GROUP BY nombresDeLosEmpleados, apellidosDeLosEmpleados --recorda preguntar si va un group by--
+ORDER BY cantidadDeHijos DESC
+LIMIT 5;
+--ACT9 Mostrar cual es el empleado con el tercer mejor sueldo.--
+SELECT first_name AS nombreDelEmpleado,salary AS salarioDelTercerMejorEmpleado FROM employees
+ORDER BY salary DESC
+LIMIT 1 OFFSET 2;
+--ACT10 Mostrar la cantidad promedio y la cantidad máxima de hijos por empleado.--
+SELECT e.first_name AS nombresDeLosEmpleados ,e.last_name AS apellidosDeLosEmpleados, avg(d.relationship) AS cantidadDeHijos 
+FROM employees e 
+JOIN dependents d ON e.employee_id = d.employee_id 
+GROUP BY nombresDeLosEmpleados, apellidosDeLosEmpleados 
+ORDER BY cantidadDeHijos DESC;
+--aun no esta terminado--
