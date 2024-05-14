@@ -41,3 +41,7 @@ JOIN tracks t ON al.AlbumId = t.AlbumId
 WHERE t.Milliseconds < 10000
 LIMIT 20;
 --ACT10 Apellido, puesto, apellido del jefe y cantidad de clientes que atiende de todos los empleados ordenado desde los que atienden más clientes a los que atienden menos--
+SELECT e.LastName AS apellidoEmpleado, e.Title AS Puestos, count(c.CustomerId) AS CantidaDeClientes 
+FROM employees e LEFT JOIN customers c ON c.SupportRepId = e.EmployeeId
+GROUP BY c.SupportRepId
+ORDER BY c.SupportRepId ASC;
