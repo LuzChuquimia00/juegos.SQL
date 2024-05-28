@@ -12,3 +12,4 @@ JOIN get_fit_now_check_in gt ON gt.membership_id = g.id
 WHERE gt.check_in_date LIKE '2018%'
 GROUP BY p.id, g.membership_status
 ORDER BY g.membership_status ASC, p.ssn ASC
+ 
