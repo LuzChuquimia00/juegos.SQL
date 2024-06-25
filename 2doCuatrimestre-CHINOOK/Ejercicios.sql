@@ -4,8 +4,7 @@
 UPDATE employees SET phone =  fax;
 --4.Borrar todos los géneros que tengan menos de 50 canciones
 --(borrar todo lo necesario para poder borrar estos géneros)
-
-DELETE FROM genres
+UPDATE tracks SET GenreId = NULL
 WHERE GenreId IN (
     SELECT g.GenreId
     FROM genres g
@@ -13,3 +12,14 @@ WHERE GenreId IN (
     GROUP BY g.GenreId
     HAVING COUNT(t.TrackId) < 50
 );
+DELETE FROM genres
+WHERE GenreId IN (
+    SELECT g.GenreId
+    FROM genres g
+    LEFT JOIN tracks t ON g.GenreId = t.GenreId
+    GROUP BY g.GenreId
+    HAVING COUNT(t.TrackId) < 50
+);
+--para borrar los generos que tengan menos de 50 canciones, 
+--lo primero que hice fue modificar los generos menores a 50 canciones a NULL para poder borrar.
+--5.
