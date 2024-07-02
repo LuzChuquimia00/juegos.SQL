@@ -33,15 +33,7 @@ UPDATE employees SET salary = salary*1.2 WHERE salary < 8000 or job_id = 9 or jo
 --6.Nos informa que la empresa dejara de prestar operaciones en Alemania,
 --por lo que nos solicitan que eliminemos todos los empleados, departamentos 
 --y locaciones pertenecientes a Alemania junto con el pais.
-
-DELETE FROM employees WHERE employee_id in (SELECT e.employee_id as empleados FROM employees e
-JOIN departments d ON e.department_id = d.department_id
-JOIN jobs j ON e.job_id = j.job_id
-JOIN locations l ON d.location_id = l.location_id
-JOIN countries c ON l.country_id = c.country_id
-WHERE c.country_id LIKE 'DE');
-
-DELETE FROM countries WHERE country_id IN (SELECT country_id FROM countries WHERE country_id LIKE 'DE');
-----------------------
-DELETE FROM countries WHERE country_id = "DE"; 
-DELETE FROM countries WHERE country_id = "DE"; 
+DELETE FROM employees WHERE department_id= 7; 
+DELETE FROM departments WHERE location_id = 2700;
+DELETE FROM locations WHERE country_id= "DE"; 
+DELETE FROM countries WHERE country_id = "DE";
