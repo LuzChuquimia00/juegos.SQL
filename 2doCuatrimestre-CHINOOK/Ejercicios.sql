@@ -22,4 +22,11 @@ WHERE GenreId IN (
 );
 --para borrar los generos que tengan menos de 50 canciones, 
 --lo primero que hice fue modificar los generos menores a 50 canciones a NULL para poder borrar.
---5.
+
+--5.En la tabla de empleados, el jefe principal tiene NULL en el campo 
+--de reportsTo.  Modificar la tabla para que tenga su propio id de empleado
+-- en ese campo.
+UPDATE employees
+SET ReportsTo = 1
+WHERE ReportsTo is null; 
+--6.Borrar todos los clientes que no tengan facturas (invoices).

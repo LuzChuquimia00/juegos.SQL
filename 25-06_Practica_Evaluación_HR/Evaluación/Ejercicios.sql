@@ -29,7 +29,6 @@ UPDATE employees SET phone_number = '111.222.3344' WHERE phone_number IS NULL;
 --- menos que trabajen de programadores o empleados de compra (Purchasing Clerk).
 UPDATE employees SET salary = salary*1.2 WHERE salary < 8000 or job_id = 9 or job_id = 13;
 --5.
-
 --6.Nos informa que la empresa dejara de prestar operaciones en Alemania,
 --por lo que nos solicitan que eliminemos todos los empleados, departamentos 
 --y locaciones pertenecientes a Alemania junto con el pais.
