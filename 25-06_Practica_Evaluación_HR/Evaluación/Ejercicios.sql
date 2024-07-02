@@ -27,7 +27,7 @@ UPDATE employees SET phone_number = '111.222.3344' WHERE phone_number IS NULL;
 --4.Debido a una politica de mejora de sueldos nos solicitan que incrementemos un 20% 
 --el salario de todos los empleados que cobren 8000 o
 --- menos que trabajen de programadores o empleados de compra (Purchasing Clerk).
-UPDATE employees SET salary = salary*1.2 WHERE salary < 8000;
+UPDATE employees SET salary = salary*1.2 WHERE salary < 8000 or job_id = 9 or job_id = 13;
 --5.
 
 --6.Nos informa que la empresa dejara de prestar operaciones en Alemania,
@@ -42,3 +42,6 @@ JOIN countries c ON l.country_id = c.country_id
 WHERE c.country_id LIKE 'DE');
 
 DELETE FROM countries WHERE country_id IN (SELECT country_id FROM countries WHERE country_id LIKE 'DE');
+----------------------
+DELETE FROM countries WHERE country_id = "DE"; 
+DELETE FROM countries WHERE country_id = "DE"; 
